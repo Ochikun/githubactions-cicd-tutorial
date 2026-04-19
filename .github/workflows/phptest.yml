@@ -25,4 +25,4 @@ jobs:
         run:  composer install --prefer-dist --no-progress
 
       - name: Run PHPunit
-        run:  .src/vendor/bin/phpunit tests/SimpleTest.php
+        run:  ./src/vendor/bin/phpunit tests/SimpleTest.php
