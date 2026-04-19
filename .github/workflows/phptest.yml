@@ -1,27 +1,27 @@
 name: php test
 
-  on:
-    push:
-      branches: ["main"]
-    pull_request:
-      branches: ["main"]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
-  jobs:
-    test:
-      runs-on: ubuntu-latest
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@6
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@6
 
-      - name: Setup
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          tools: composer
+    - name: Setup
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+        tools: composer
 
-      - name: Install Dependencies
-        run:  composer install --prefer-dist --no-progress
+    - name: Install Dependencies
+      run:  composer install --prefer-dist --no-progress
 
-      - name: Run PHPunit
-        run:  vendor/bin/phpunit test/Unit/SimpleTest.php
+    - name: Run PHPunit
+      run:  vendor/bin/phpunit tests/Unit/SimpleTest.php
